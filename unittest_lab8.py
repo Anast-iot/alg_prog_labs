@@ -42,10 +42,8 @@ class TestWireLength(unittest.TestCase):
     def test_all_poles_height_1(self):
         w = 5
         heights = [1, 1, 1, 1, 1]
-        # Всі висоти = 1, дріт горизонтальний: 4 * 5 = 20
         result = find_max_wire_length(w, heights)
         self.assertAlmostEqual(result, 20.0, places=2)
-
 
 if __name__ == "__main__":
     unittest.main()
