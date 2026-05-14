@@ -1,4 +1,3 @@
-# 8 можливих зміщень коня
 MOVES = [
     (-2, -1), (-2, +1),
     (+2, -1), (+2, +1),
@@ -48,24 +47,20 @@ def bfs(n, start, end):
     return -1
 
 def clean_string(s):
-    # Ручна реалізація strip() та видалення коментарів
     clean = ""
     for char in s:
         if char == "#": break
         clean += char
-    
-    # Видаляємо пробіли з початку
+
     i = 0
     while i < len(clean) and (clean[i] == " " or clean[i] == "\r" or clean[i] == "\t"):
         i += 1
-    # Видаляємо з кінця
     j = len(clean) - 1
     while j >= i and (clean[j] == " " or clean[j] == "\r" or clean[j] == "\t"):
         j -= 1
     return clean[i : j + 1]
 
 def parse_pair(s):
-    # Ручний пошук коми без split()
     s = clean_string(s)
     comma_i = -1
     for i in range(len(s)):
@@ -84,7 +79,6 @@ def read_input(filename):
 
     lines = []
     current = ""
-    # Додаємо \n в кінець для коректної обробки останнього рядка
     for ch in content + "\n":
         if ch == "\n":
             cleaned = clean_string(current)
@@ -110,7 +104,6 @@ def main():
         result = bfs(n, start, end)
         write_output(result, "output.txt")
     except Exception as e:
-        # Для дебагу, якщо файл не знайдено
         print("Error: " + str(e))
 
 if __name__ == "__main__":
