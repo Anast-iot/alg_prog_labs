@@ -44,8 +44,6 @@ class TestRedBlackPriorityQueue(unittest.TestCase):
             return 1 + count(node.left) + count(node.right)
         return count(q.root)
 
-    # enqueue
-
     def test_enqueue_single(self):
         self.q.enqueue("A", 10)
         val, pri = self.q.peek()
@@ -57,8 +55,6 @@ class TestRedBlackPriorityQueue(unittest.TestCase):
             self.q.enqueue("v", p)
         self._check_rb(self.q)
         self._check_order(self.q)
-
-    # peek
 
     def test_peek_returns_max(self):
         self.q.enqueue("cat", 8)
@@ -78,8 +74,6 @@ class TestRedBlackPriorityQueue(unittest.TestCase):
     def test_peek_empty_raises(self):
         with self.assertRaises(IndexError):
             self.q.peek()
-
-    # dequeue
 
     def test_dequeue_returns_max(self):
         self.q.enqueue("low", 2)
@@ -101,8 +95,6 @@ class TestRedBlackPriorityQueue(unittest.TestCase):
     def test_dequeue_empty_raises(self):
         with self.assertRaises(IndexError):
             self.q.dequeue()
-
-    # mixed
 
     def test_interleaved_operations(self):
         self.q.enqueue("A", 5)
