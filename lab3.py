@@ -30,7 +30,6 @@ class BinaryTree:
 
     @staticmethod
     def __deserialize(data):
-        # перетворює рядок з post-order на бінарне дерево
         values = list(map(int, data.split()))
         
         def build(vals):
@@ -51,8 +50,8 @@ class BinaryTree:
 
     @classmethod
     def load_from_file(cls, filename):
-        raw = cls.__read_file(filename)    # зчитування
-        return cls.__deserialize(raw)      # десеріалізація
+        raw = cls.__read_file(filename)   
+        return cls.__deserialize(raw)     
 
     def __get_lines(self, node):
             if node is None:
